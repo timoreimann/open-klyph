@@ -1,0 +1,32 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':main')
+    compile project(':imageViewTouch')
+    compile project(':library')
+    compile project(':abewyLibs')
+    compile project(':abewy_Extended')
+    compile project(':horizontalListView')
+    compile project(':klyphCore')
+    compile 'com.google.android.gms:play-services:+'
+    compile files('libs/commons-lang3-3.1.jar')
+    compile files('libs/dragsortlistview.jar')
+    compile files('libs/listviewanimations.jar')
+}
