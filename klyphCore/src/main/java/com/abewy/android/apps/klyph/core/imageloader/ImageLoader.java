@@ -50,10 +50,10 @@ public class ImageLoader
 		if (uri == null || uri.length() == 0)
 			uri = FAKE_URI;
 		
-		/*uri = uri.replace("é", URLEncoder.encode("é"));
-		uri = uri.replace("à", URLEncoder.encode("à"));
+		/*uri = uri.replace("Ã©", URLEncoder.encode("Ã©"));
+		uri = uri.replace("Ã ", URLEncoder.encode("Ã "));
 		uri = uri.replace("'", URLEncoder.encode("'"));
-		uri = uri.replace("’", URLEncoder.encode("’"));*/
+		uri = uri.replace("â€™", URLEncoder.encode("â€™"));*/
 		
 		uri = Uri.encode(uri, ALLOWED_URI_CHARS);
 

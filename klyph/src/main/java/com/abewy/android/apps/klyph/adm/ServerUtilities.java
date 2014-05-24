@@ -14,6 +14,7 @@ import java.util.Random;
 import java.util.Map.Entry;
 import com.abewy.android.apps.klyph.R;
 import com.abewy.android.apps.klyph.core.KlyphSession;
+import com.abewy.android.apps.klyph.gcm.CommonUtilities;
 import com.abewy.util.Android;
 import android.content.Context;
 import android.util.Log;
@@ -202,7 +203,7 @@ public class ServerUtilities
 					Log.e(TAG, "Failed to read JSON from stream" + e);
 				    //throw new RuntimeException("Failed to read JSON from stream", e);
 				}
-				Log.d(TAG, "GCM Server response : " + json.toString());
+				Log.d(TAG, "GCM Server response : " + json.toString());
 			}
 		}
 		finally

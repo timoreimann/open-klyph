@@ -8,4 +8,6 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
+    <application />
+
 </manifest>

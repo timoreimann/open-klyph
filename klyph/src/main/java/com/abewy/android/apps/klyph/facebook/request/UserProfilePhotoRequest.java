@@ -22,10 +22,10 @@ public class UserProfilePhotoRequest extends KlyphQuery
 	public String getQuery(String id, String offset)
 	{
 		String query1 = "SELECT object_id, images " + "FROM photo "
-						+ "WHERE album_object_id IN (SELECT object_id from album WHERE owner = " + id
-						+ " AND type = \"profile\") LIMIT 500";
+						+ "WHERE album_object_id IN (SELECT object_id from album WHERE owner = " + id
+						+ " AND type = \"profile\") LIMIT 500";
 
-		String query2 = "SELECT id, url FROM profile_pic WHERE id = " + id;
+		String query2 = "SELECT id, url FROM profile_pic WHERE id = " + id;
 
 		return multiQuery(query1, query2);
 	}

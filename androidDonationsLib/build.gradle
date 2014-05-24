@@ -15,8 +15,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
+deps = [
+        'com.github.castorflex.smoothprogressbar:library:0.5.1',
+        'com.android.support:support-v4:+'
+]
+
 dependencies {
-    compile 'com.android.support:support-v4:+'
+    compile deps
 }

@@ -32,19 +32,19 @@ public class PeriodicNotificationRequest extends KlyphQuery
 		String query3 = "SELECT id, name from profile WHERE id IN (SELECT sender_id FROM #query1 WHERE strlen(sender_id) > 0)";
 
 		// friend
-		String query4 = "SELECT uid, name FROM user" + " WHERE uid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query4 = "SELECT uid, name FROM user" + " WHERE uid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 
 		// event
-		String query5 = "SELECT eid, name FROM event" + " WHERE eid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query5 = "SELECT eid, name FROM event" + " WHERE eid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 
 		// page
-		String query6 = "SELECT page_id, name FROM page" + " WHERE page_id IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query6 = "SELECT page_id, name FROM page" + " WHERE page_id IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 
 		// group
-		String query7 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query7 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 
 		// Stream
-		String query8 = "SELECT post_id, object_id FROM comment WHERE object_id IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query8 = "SELECT post_id, object_id FROM comment WHERE object_id IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 
 		return multiQuery(query1, query2, query3, query4, query5, query6, query7, query8);
 	}

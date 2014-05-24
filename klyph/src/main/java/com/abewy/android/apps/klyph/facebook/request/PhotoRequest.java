@@ -26,8 +26,8 @@ public class PhotoRequest extends KlyphQuery
 				+ "OR id IN (SELECT target_id FROM #query1)";
 
 		// Album
-		String query3 = "SELECT aid, name FROM album " 
-				+ "WHERE object_id IN (SELECT album_object_id FROM #query1)";
+		String query3 = "SELECT aid, name FROM album "
+				+ "WHERE object_id IN (SELECT album_object_id FROM #query1)";
 		
 		// Get profile pics
 		String query4 = "SELECT id, url FROM square_profile_pic "

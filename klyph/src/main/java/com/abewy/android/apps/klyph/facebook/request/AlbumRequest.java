@@ -17,9 +17,9 @@ public class AlbumRequest extends KlyphQuery
 	public String getQuery(String id, String offset)
 	{
 		String query1 = "SELECT aid, backdated_time, can_backdate, can_upload, comment_info, cover_object_id, cover_pid, created, description, edit_link, like_info, link, location, modified, modified_major, name, object_id, owner, owner_cursor, photo_count, place_id, type, video_count, visible";
-		query1 += " FROM album WHERE object_id = \"" + id + "\" OR aid = \"" + id + "\"";
+		query1 += " FROM album WHERE object_id = \"" + id + "\" OR aid = \"" + id + "\"";
 		
-		String query2 = "SELECT id, name FROM profile WHERE id IN (SELECT owner FROM #query1)";
+		String query2 = "SELECT id, name FROM profile WHERE id IN (SELECT owner FROM #query1)";
 		
 		String query3 = "SELECT pid, images from photo where pid in (select cover_pid from #query1)";
 		

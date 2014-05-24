@@ -604,7 +604,7 @@ public class KlyphFragment2 extends BaseFragment implements IKlyphFragment, OnSc
 		// Crashlytics report on request error
 		try
 		{
-			throw new Exception("Class : " + this.getClass().getName() + "\n, Request " + requestType + ", Id " + elementId + ", Offset " + offset
+			throw new Exception("Class : " + this.getClass().getName() + "\n, Request " + requestType + ", Id " + elementId + ", Offset " + offset
 								+ "\n, Error " + error.getMessage());
 		}
 		catch (Exception e)

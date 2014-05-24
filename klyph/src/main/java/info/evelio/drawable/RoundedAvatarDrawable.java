@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Evelio Tarazona Cáceres <evelio@evelio.info>
+ * Copyright 2013 Evelio Tarazona CÃ¡ceres <evelio@evelio.info>
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

@@ -193,7 +193,7 @@ public class AsyncRequest extends BaseAsyncRequest
 
 			try
 			{
-				throw new Exception("Class : " + this.getClass().getName() + "\n, Request " + getQuery() + ", Id " + getId() + ", Offset "
+				throw new Exception("Class : " + this.getClass().getName() + "\n, Request " + getQuery() + ", Id " + getId() + ", Offset "
 									+ getOffset() + "\n, Error " + error.getMessage());
 			}
 			catch (Exception e)

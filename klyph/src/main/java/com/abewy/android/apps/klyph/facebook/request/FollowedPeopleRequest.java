@@ -17,8 +17,8 @@ public class FollowedPeopleRequest extends KlyphQuery
 	@Override
 	public String getQuery(String id, String offset)
 	{
-		String query1 = "SELECT uid, name FROM user "
-						+ "WHERE uid IN (SELECT subscribed_id FROM subscription WHERE subscriber_id = me()) " + "LIMIT "
+		String query1 = "SELECT uid, name FROM user "
+						+ "WHERE uid IN (SELECT subscribed_id FROM subscription WHERE subscriber_id = me()) " + "LIMIT "
 						+ getOffset(offset, "0") + ", 50";
 
 		String query2 = "SELECT id, url from square_profile_pic WHERE id IN (SELECT uid FROM #query1) AND size = "

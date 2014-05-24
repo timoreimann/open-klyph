@@ -22,7 +22,7 @@ public class UserLikeRequest extends KlyphQuery
 
 		String query1 = "SELECT uid, name from user where uid in (SELECT user_id FROM like " 
 				+ "WHERE post_id=\"" + id + "\""
-				+ " OR object_id = \"" + id + "\""
+				+ " OR object_id = \"" + id + "\""
 				+ " LIMIT " + offset + ", 50)";
 		
 		String query2 = "SELECT id, url from square_profile_pic WHERE id IN (SELECT uid FROM #query1) AND size = "

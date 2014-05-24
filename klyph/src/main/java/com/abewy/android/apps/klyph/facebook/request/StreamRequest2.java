@@ -25,7 +25,7 @@ public class StreamRequest2 extends KlyphQuery
 						"WHERE parent_id = 0 AND post_id = \"" + id + "\"";
 		
 		if (getOffset(offset, null) != null)
-			query1 += " AND post_id_cursor > \"" + offset + "\"";
+			query1 += " AND post_id_cursor > \"" + offset + "\"";
 						
 		query1 += "";
 
@@ -47,7 +47,7 @@ public class StreamRequest2 extends KlyphQuery
 			//Get sub newsfeed
 			String query6 = "SELECT post_id, source_id, actor_id, target_id, app_id, created_time, message, message_tags, attachment, description, ";
 			query6 += "description_tags, type, privacy, parent_post_id, place, permalink, comment_info, like_info, action_links, tagged_ids, ";
-			query6 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query5 WHERE type = 257 OR type = 245)";
+			query6 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query5 WHERE type = 257 OR type = 245)";
 			
 			// Get liked links
 			String query7 = "SELECT caption, comment_info, created_time, image_urls, like_info, link_id, owner, owner_comment, picture, summary, title, url, via_id "

@@ -26,8 +26,8 @@ public class UserProfileRequest extends KlyphQuery
 		String query2 = "SELECT uid, relationship, name, birthday FROM family WHERE profile_id IN (SELECT uid FROM #query1)";
 		String query3 = "SELECT id, url from square_profile_pic WHERE id = " + id + " AND size = "
 						+ (int) (KlyphDevice.getDeviceDensity() * 96);
-		String query4 = "SELECT uid1, uid2 FROM friend WHERE uid1 = me() AND uid2 = " + id;
-		String query5 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE (uid_to = me() and uid_from = " + id + ") OR (uid_to = " + id + " and uid_from = me())";
+		String query4 = "SELECT uid1, uid2 FROM friend WHERE uid1 = me() AND uid2 = " + id;
+		String query5 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE (uid_to = me() and uid_from = " + id + ") OR (uid_to = " + id + " and uid_from = me())";
 		
 		return multiQuery(query1, query2, query3, query4, query5);
 	}

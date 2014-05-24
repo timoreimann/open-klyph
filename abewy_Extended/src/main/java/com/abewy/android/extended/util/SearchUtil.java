@@ -84,7 +84,7 @@ public class SearchUtil
 		// Here are others algorithms that are working
 		// But that have a higher complexity
 
-		// This is the simple but worst algorithm, complexity O(N³)
+		// This is the simple but worst algorithm, complexity O(N)
 		
 		/*int maxSum = 0;
 		
@@ -104,7 +104,7 @@ public class SearchUtil
 		
 		return maxSum;*/
 		
-		// Second one, complexity O(N²)
+		// Second one, complexity O(N)
 		
 		/*int maxSum = 0;
 		for (int i = 0; i < a.length; i++)

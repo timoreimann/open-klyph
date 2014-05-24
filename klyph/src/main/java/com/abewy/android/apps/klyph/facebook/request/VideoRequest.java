@@ -20,9 +20,9 @@ public class VideoRequest extends KlyphQuery
 		String query1 = "SELECT album_id, created_time, description, format, length, link, owner, src, src_hq, thumbnail_link, title, updated_time, vid";
 		query1 += " FROM video WHERE vid = \"" + id + "\"";
 		
-		String query2 = "SELECT id, name FROM profile WHERE id IN (SELECT owner FROM #query1)";
+		String query2 = "SELECT id, name FROM profile WHERE id IN (SELECT owner FROM #query1)";
 		
-		String query3 = "SELECT aid, name FROM album WHERE object_id IN (SELECT album_id FROM #query1 )";
+		String query3 = "SELECT aid, name FROM album WHERE object_id IN (SELECT album_id FROM #query1 )";
 		
 		// Get profile pics
 		String query4 = "SELECT id, url FROM square_profile_pic "

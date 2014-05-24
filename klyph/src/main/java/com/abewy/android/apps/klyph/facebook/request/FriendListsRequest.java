@@ -17,8 +17,8 @@ public class FriendListsRequest extends KlyphQuery
 	public String getQuery(String id, String offset)
 	{
 		return "SELECT count, flid, name, owner, owner_cursor, type " +
-						"FROM friendlist WHERE owner = me() AND type = \"user_created\" " +
-						"ORDER BY name LIMIT 100";
+						"FROM friendlist WHERE owner = me() AND type = \"user_created\" " +
+						"ORDER BY name LIMIT 100";
 	}
 
 	@Override

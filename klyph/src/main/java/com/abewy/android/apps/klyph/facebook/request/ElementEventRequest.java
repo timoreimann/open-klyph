@@ -21,7 +21,7 @@ public class ElementEventRequest extends KlyphQuery
 		long now = new Date().getTime() / 1000;
 		
 		String query1 = "SELECT eid, name, pic_small, pic_big, pic_square, pic, host, description, creator, update_time, venue, location, start_time, end_time, privacy, hide_guest_list, can_invite_friends, all_members_count, attending_count, unsure_count, declined_count, not_replied_count FROM event WHERE eid IN (SELECT eid from event_member where uid = "
-						+ id + ") AND start_time > " + now + " ORDER BY start_time ASC";
+						+ id + ") AND start_time > " + now + " ORDER BY start_time ASC";
 		query1 += " LIMIT " + getOffset(offset, "0") + ", 25";
 
 		String query2 = "SELECT id, url from square_profile_pic WHERE id IN (SELECT eid FROM #query1) AND size = "

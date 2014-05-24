@@ -25,29 +25,29 @@ public class NotificationRequest2 extends KlyphQuery
 
 		query1 += getOffsetQuery(offset);
 
-		query1 += " ORDER BY updated_time DESC LIMIT 1000";
+		query1 += " ORDER BY updated_time DESC LIMIT 1000";
 
-		String query2 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE uid_to = me() AND is_hidden = 0 LIMIT 1000";
+		String query2 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE uid_to = me() AND is_hidden = 0 LIMIT 1000";
 
-		String query3 = "SELECT id, url from square_profile_pic WHERE (id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)) AND size = "
+		String query3 = "SELECT id, url from square_profile_pic WHERE (id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)) AND size = "
 						+ Klyph.getStandardImageSizeForNotification();
 
-		String query4 = "SELECT id, name from profile WHERE id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)";
+		String query4 = "SELECT id, name from profile WHERE id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)";
 
 		// friend
-		String query5 = "SELECT uid, name FROM user" + " WHERE uid IN (SELECT object_id FROM #query1)";
+		String query5 = "SELECT uid, name FROM user" + " WHERE uid IN (SELECT object_id FROM #query1)";
 
 		// event
-		String query6 = "SELECT eid, name FROM event" + " WHERE eid IN (SELECT object_id FROM #query1)";
+		String query6 = "SELECT eid, name FROM event" + " WHERE eid IN (SELECT object_id FROM #query1)";
 
 		// page
-		String query7 = "SELECT page_id, name FROM page" + " WHERE page_id IN (SELECT object_id FROM #query1)";
+		String query7 = "SELECT page_id, name FROM page" + " WHERE page_id IN (SELECT object_id FROM #query1)";
 
 		// group
-		String query8 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1)";
+		String query8 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1)";
 
 		// Stream
-		String query9 = "SELECT post_id, object_id FROM comment WHERE object_id IN (SELECT object_id FROM #query1)";
+		String query9 = "SELECT post_id, object_id FROM comment WHERE object_id IN (SELECT object_id FROM #query1)";
 
 		return multiQuery(query1, query2, query3, query4, query5, query6, query7, query8, query9);
 	}

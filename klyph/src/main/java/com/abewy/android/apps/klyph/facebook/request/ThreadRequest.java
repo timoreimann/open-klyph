@@ -27,7 +27,7 @@ public class ThreadRequest extends KlyphQuery
 
 		String query2 = "SELECT uid, name, first_name FROM user WHERE uid IN (SELECT recipients FROM #query1)";
 
-		String query3 = "SELECT id, name FROM profile WHERE id IN (SELECT recipients FROM #query1)";
+		String query3 = "SELECT id, name FROM profile WHERE id IN (SELECT recipients FROM #query1)";
 
 		String query4 = "SELECT id, url from square_profile_pic WHERE id IN (SELECT id FROM #query3) AND size = "
 						+ Klyph.getStandardImageSizeForRequest() * 2;

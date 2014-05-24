@@ -60,7 +60,7 @@ public class PageAbout extends KlyphFakeHeaderGridFragment
 			// Mission
 			addTitleTextItem(data, page.getDescription(), R.string.mission);
 
-			// G�n�ral infos
+			// General infos
 			addTitleTextItem(data, page.getGeneral_info(), R.string.general_infos);
 
 			// Plot outline

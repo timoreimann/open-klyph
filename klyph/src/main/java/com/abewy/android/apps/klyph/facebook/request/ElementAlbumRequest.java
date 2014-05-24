@@ -42,7 +42,7 @@ public class ElementAlbumRequest extends KlyphQuery
 
 		query1 += " LIMIT 25";
 
-		String query2 = "SELECT pid, images from photo where pid in (select cover_pid from #query1 WHERE strlen(cover_pid) > 0)";
+		String query2 = "SELECT pid, images from photo where pid in (select cover_pid from #query1 WHERE strlen(cover_pid) > 0)";
 
 		if (isOffsetDefined(offset))
 		{
@@ -52,8 +52,8 @@ public class ElementAlbumRequest extends KlyphQuery
 		String query3 = "select pid, object_id, images from photo where object_id in (select object_id from photo_tag where subject = " + id
 						+ ") LIMIT 1000";
 
-		String query4 = "SELECT uid, first_name, name FROM user where uid = \"" + id + "\"";
-		String query5 = "SELECT id, name FROM profile where id = " + id;
+		String query4 = "SELECT uid, first_name, name FROM user where uid = \"" + id + "\"";
+		String query5 = "SELECT id, name FROM profile where id = " + id;
 
 		String query6 = "SELECT vid, thumbnail_link, owner FROM video WHERE owner = " + id;
 

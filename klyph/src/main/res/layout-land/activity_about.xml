@@ -52,7 +52,6 @@
                 android:id="@+id/copyright"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/app_name"
                 android:gravity="center"
                 android:text="@string/about_copyright"
                 android:textColor="@android:color/white"

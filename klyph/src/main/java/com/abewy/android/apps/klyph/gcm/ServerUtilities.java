@@ -206,7 +206,7 @@ public final class ServerUtilities
 					Log.e(TAG, "Failed to read JSON from stream" + e);
 				    //throw new RuntimeException("Failed to read JSON from stream", e);
 				}
-				Log.d(TAG, "GCM Server response : " + json.toString());
+				Log.d(TAG, "GCM Server response : " + json.toString());
 			}
 		}
 		finally

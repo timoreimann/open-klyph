@@ -5,8 +5,8 @@ public final class CommonUtilities
 
 	// give your server registration url here
 	private static final String	SERVER_URL				= "http://www.yourserver.com/gcm-server/";
-	static final String			REGISTER_URL			= SERVER_URL + "register.php";
-	static final String			UNREGISTER_URL			= SERVER_URL + "unregister.php";
+	public static final String			REGISTER_URL			= SERVER_URL + "register.php";
+	public static final String			UNREGISTER_URL			= SERVER_URL + "unregister.php";
 
 	// Google project id
 	public static final String	SENDER_ID				= "[SENDER_ID]";

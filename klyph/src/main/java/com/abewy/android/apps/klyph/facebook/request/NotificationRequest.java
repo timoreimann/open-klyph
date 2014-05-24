@@ -25,17 +25,17 @@ public class NotificationRequest extends KlyphQuery
 
 		query1 += getOffsetQuery(offset);
 
-		query1 += " ORDER BY updated_time DESC LIMIT 1000";
+		query1 += " ORDER BY updated_time DESC LIMIT 1000";
 
-		String query2 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE uid_to = me() AND is_hidden = 0 LIMIT 1000";
+		String query2 = "SELECT is_hidden, message, time, uid_from, uid_to, unread FROM friend_request WHERE uid_to = me() AND is_hidden = 0 LIMIT 1000";
 
-		String query3 = "SELECT id, url from square_profile_pic WHERE (id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)) AND size = "
+		String query3 = "SELECT id, url from square_profile_pic WHERE (id IN (SELECT sender_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)) AND size = "
 						+ Klyph.getStandardImageSizeForNotification();
 
-		String query4 = "SELECT id, name from profile WHERE id IN (SELECT sender_id FROM #query1) OR id IN (SELECT object_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)";
+		String query4 = "SELECT id, name from profile WHERE id IN (SELECT sender_id FROM #query1) OR id IN (SELECT object_id FROM #query1) OR id IN (SELECT uid_from FROM #query2)";
 		
 		// group
-		String query5 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
+		String query5 = "SELECT gid, name FROM group" + " WHERE gid IN (SELECT object_id FROM #query1 WHERE strlen(object_id) > 0)";
 		//Log.d("NotificationRequest", "getQuery: " + multiQuery(query1, query2, query3, query4, query5));
 		return multiQuery(query1, query2, query3, query4, query5);
 	}

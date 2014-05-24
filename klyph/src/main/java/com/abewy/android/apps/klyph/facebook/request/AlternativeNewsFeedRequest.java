@@ -36,14 +36,14 @@ public class AlternativeNewsFeedRequest extends KlyphQuery
 		
 		// Type 347 : OpenGraph
 		// Actor id 236928399762980 : Fb_in_feed empty useless story
-		query1 += " type <> 347 AND actor_id <> 236928399762980 ";
-		query1 += " AND source_id IN (SELECT target_id FROM connection WHERE source_id = me() AND is_following = 1)";
+		query1 += " type <> 347 AND actor_id <> 236928399762980 ";
+		query1 += " AND source_id IN (SELECT target_id FROM connection WHERE source_id = me() AND is_following = 1)";
 		query1 += " ORDER BY created_time " + getOrderBy() + " LIMIT 50";
 		
 		//Get sub newsfeed
 		String query2 = "SELECT post_id, source_id, actor_id, target_id, app_id, created_time, message, message_tags, attachment, description, ";
 		query2 += "description_tags, type, privacy, parent_post_id, place, permalink, comment_info, like_info, action_links, tagged_ids, ";
-		query2 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query1 WHERE type = 257 OR type = 245 and strlen(parent_post_id) > 0)";
+		query2 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query1 WHERE type = 257 OR type = 245 and strlen(parent_post_id) > 0)";
 
 		// Get liked links
 		String query3 = "SELECT caption, comment_info, created_time, image_urls, like_info, link_id, owner, owner_comment, picture, summary, title, url, via_id "
@@ -65,7 +65,7 @@ public class AlternativeNewsFeedRequest extends KlyphQuery
 
 		// Get shared status
 		String query6 = "SELECT comment_info, like_info, message, place_id, source, status_id, time, uid"
-				+ " FROM status WHERE status_id IN (SELECT substr(post_id, strpos(post_id, \"_\") + 1, strlen(post_id)) FROM #query1 WHERE type = 257) OR status_id IN "
+				+ " FROM status WHERE status_id IN (SELECT substr(post_id, strpos(post_id, \"_\") + 1, strlen(post_id)) FROM #query1 WHERE type = 257) OR status_id IN "
 				+ "(SELECT substr(attachment.href, strpos(attachment.href, \"posts/\") + 6, strlen(attachment.href)) FROM #query1 WHERE strlen(attachment.href) > 0)";
 
 		// Get events
@@ -73,12 +73,12 @@ public class AlternativeNewsFeedRequest extends KlyphQuery
 				+ "(SELECT substr(post_id, strpos(post_id, \"_\") + 1, strlen(post_id)) FROM #query1)"; 
 
 		// Get source/target users and pages
-		String query8 = "SELECT id, name, type from profile " + "WHERE id IN (SELECT actor_id FROM #query1 WHERE strlen(actor_id) > 0) "
-				+ "OR id IN (SELECT target_id FROM #query1 WHERE strlen(target_id) > 0) " + "OR id IN (SELECT tagged_ids FROM #query1) "
-				+ "OR id IN (SELECT actor_id FROM #query2 WHERE strlen(actor_id) > 0) "
-				+ "OR id IN (SELECT target_id FROM #query2 WHERE strlen(target_id) > 0) " + "OR id IN (SELECT tagged_ids FROM #query2) "
-				+ "OR id IN (SELECT owner FROM #query3) " + "OR id IN (SELECT via_id FROM #query3 WHERE strlen(via_id) > 0) "
-				+ "OR id IN (SELECT owner FROM #query4)" + "OR id IN (SELECT target_id FROM #query4 WHERE strlen(target_id) > 0)"
+		String query8 = "SELECT id, name, type from profile " + "WHERE id IN (SELECT actor_id FROM #query1 WHERE strlen(actor_id) > 0) "
+				+ "OR id IN (SELECT target_id FROM #query1 WHERE strlen(target_id) > 0) " + "OR id IN (SELECT tagged_ids FROM #query1) "
+				+ "OR id IN (SELECT actor_id FROM #query2 WHERE strlen(actor_id) > 0) "
+				+ "OR id IN (SELECT target_id FROM #query2 WHERE strlen(target_id) > 0) " + "OR id IN (SELECT tagged_ids FROM #query2) "
+				+ "OR id IN (SELECT owner FROM #query3) " + "OR id IN (SELECT via_id FROM #query3 WHERE strlen(via_id) > 0) "
+				+ "OR id IN (SELECT owner FROM #query4)" + "OR id IN (SELECT target_id FROM #query4 WHERE strlen(target_id) > 0)"
 				+ "OR id IN (SELECT owner FROM #query5)" + "OR id IN (SELECT uid FROM #query6)";
 
 		// Get liked pages
@@ -86,19 +86,19 @@ public class AlternativeNewsFeedRequest extends KlyphQuery
 				+ "WHERE page_id IN (SELECT description_tags.id FROM #query1)";
 
 		// Get profile pics
-		String query10 = "SELECT id, url FROM square_profile_pic " + "WHERE (id IN (SELECT actor_id FROM #query1 WHERE strlen(actor_id) > 0) "
-				+ "OR id IN (SELECT actor_id FROM #query2 WHERE strlen(actor_id) > 0) "
+		String query10 = "SELECT id, url FROM square_profile_pic " + "WHERE (id IN (SELECT actor_id FROM #query1 WHERE strlen(actor_id) > 0) "
+				+ "OR id IN (SELECT actor_id FROM #query2 WHERE strlen(actor_id) > 0) "
 				+ "OR id IN (SELECT owner FROM #query3) " + "OR id IN (SELECT owner FROM #query4) "
 				+ "OR id IN (SELECT owner FROM #query5) " + "OR id IN (SELECT uid FROM #query6) "
 				+ "OR id IN (SELECT page_id FROM #query9)) " + "AND size = " + Klyph.getStandardImageSizeForRequest();
 
 		// Get places
-		String query11 = "SELECT page_id, name FROM place " + "WHERE page_id IN (SELECT place FROM #query1 WHERE strlen(place) > 0)"
+		String query11 = "SELECT page_id, name FROM place " + "WHERE page_id IN (SELECT place FROM #query1 WHERE strlen(place) > 0)"
 				+ "OR page_id IN (SELECT place_id FROM #query4 WHERE strlen(place_id) > 0)" + "OR page_id IN (SELECT place_id FROM #query6 WHERE strlen(place_id) > 0)";
 
 		// Get Apps
 		String query12 = "SELECT app_id, app_name, app_type, appcenter_icon_url, category, company_name, description, display_name, icon_url, link, logo_url, subcategory"
-				+ " FROM application" + " WHERE app_id IN (SELECT app_id FROM #query1 WHERE strlen(app_id) > 0)";
+				+ " FROM application" + " WHERE app_id IN (SELECT app_id FROM #query1 WHERE strlen(app_id) > 0)";
 
 		//Log.d("", query1);
 		Log.d("", multiQuery(query1, query2, query3, query4, query5, query6,

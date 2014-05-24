@@ -36,7 +36,7 @@ public class ElementTimelineRequest extends KlyphQuery
 		//Get sub newsfeed
 		String query2 = "SELECT post_id, source_id, actor_id, target_id, app_id, created_time, message, message_tags, attachment, description, ";
 		query2 += "description_tags, type, privacy, parent_post_id, place, permalink, comment_info, like_info, action_links, tagged_ids, ";
-		query2 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query1 WHERE type = 257 OR type = 245)";
+		query2 += "app_data FROM stream WHERE post_id IN (SELECT parent_post_id FROM #query1 WHERE type = 257 OR type = 245)";
 		
 		// Get liked links
 		String query3 = "SELECT caption, comment_info, created_time, image_urls, like_info, link_id, owner, owner_comment, picture, summary, title, url, via_id "
@@ -58,7 +58,7 @@ public class ElementTimelineRequest extends KlyphQuery
 
 		// Get shared status
 		String query6 = "SELECT comment_info, like_info, message, place_id, source, status_id, time, uid"
-					+ " FROM status WHERE status_id IN (SELECT substr(post_id, strpos(post_id, \"_\") + 1, strlen(post_id)) FROM #query1 WHERE type = 257) OR status_id IN "
+					+ " FROM status WHERE status_id IN (SELECT substr(post_id, strpos(post_id, \"_\") + 1, strlen(post_id)) FROM #query1 WHERE type = 257) OR status_id IN "
 					+ "(SELECT substr(attachment.href, strpos(attachment.href, \"posts/\") + 6, strlen(attachment.href)) FROM #query1 WHERE strlen(attachment.href) > 0)";
 
 		// Get events
