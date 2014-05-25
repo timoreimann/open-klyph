@@ -21,7 +21,7 @@ android {
     }
 }
 
-deps = [
+def deps = [
         'com.github.castorflex.smoothprogressbar:library:0.5.1',
         'com.android.support:support-v4:+'
 ]
