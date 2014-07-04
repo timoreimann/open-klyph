@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 14
@@ -14,26 +14,47 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+	debug {
+	    runProguard false
+	}
+    }
+
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
     }
 
     lintOptions {
         disable 'ExtraTranslation'
     }
+
+    publishNonDefault true
 }
 
 dependencies {
-    compile project(':androidDonationsLib')
-    compile project(':imageViewTouch')
-    compile project(':abewyLibs')
-    compile project(':abewy_Extended')
-    compile project(':horizontalListView')
-    compile project(':klyphCore')
-    compile 'com.google.android.gms:play-services:+'
+    fullCompile project(path: ':androidDonationsLib', configuration: 'fullDebug')
+    fullCompile project(path: ':imageViewTouch', configuration: 'fullDebug')
+    fullCompile project(path: ':abewyLibs', configuration: 'fullDebug')
+    fullCompile project(path: ':abewy_Extended', configuration: 'fullDebug')
+    fullCompile project(path: ':horizontalListView', configuration: 'fullDebug')
+    fullCompile project(path: ':klyphCore', configuration: 'fullDebug')
+    fullCompile 'com.google.android.gms:play-services:+'
+    fullCompile files('libs/amazon-device-messaging-1.0.1.jar')
+    fullCompile files('libs/gcm.jar')
+
+    opensourceCompile project(path: ':androidDonationsLib', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':imageViewTouch', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':abewyLibs', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':abewy_Extended', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':horizontalListView', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':klyphCore', configuration: 'opensourceDebug')
+
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.9'
-    compile files('libs/amazon-device-messaging-1.0.1.jar')
-    compile files('libs/android-support-v4.jar')
+    compile 'com.android.support:support-v4:+'
     compile files('libs/commons-lang3-3.1.jar')
     compile files('libs/dragsortlistview.jar')
-    compile files('libs/gcm.jar')
     compile files('libs/listviewanimations.jar')
 }
+

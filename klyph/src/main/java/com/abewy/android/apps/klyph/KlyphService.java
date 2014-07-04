@@ -1,5 +1,6 @@
 package com.abewy.android.apps.klyph;
 
+import java.lang.reflect.Method;
 import java.util.Calendar;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -9,7 +10,6 @@ import android.util.Log;
 import com.abewy.android.apps.klyph.core.KlyphFlags;
 import com.abewy.android.apps.klyph.service.BirthdayService;
 import com.abewy.android.apps.klyph.service.NotificationService;
-import com.amazon.device.messaging.ADM;
 
 public class KlyphService
 {
@@ -75,13 +75,25 @@ public class KlyphService
 		Log.d("KlyphService", "Start push");
 		if (KlyphFlags.IS_AMAZON_VERSION)
 		{
-			Log.d("KlyphService", "startPushNotificationsService: starting ADM");
-			KlyphADM.registerIfNecessary();
+			try {
+				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphADM");
+				Method method = clazz.getMethod("registerIfNecessary");
+				Log.d("KlyphService", "startPushNotificationsService: starting ADM");
+				method.invoke(null);
+			} catch (Exception e) {
+				Log.e("KlyphService", "startPushNotificationsService: failed to start ADM", e);
+			}
 		}
 		else
 		{
-			Log.d("KlyphService", "startPushNotificationsService: starting GCM");
-			KlyphGCM.registerIfNecessary();
+			try {
+				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphGCM");
+				Method method = clazz.getMethod("registerIfNecessary");
+				Log.d("KlyphService", "startPushNotificationsService: starting GCM");
+				method.invoke(null);
+			} catch (Exception e) {
+				Log.e("KlyphService", "startPushNotificationsService: failed to start ADM", e);
+			}
 		}
 	}
 	
@@ -91,13 +103,25 @@ public class KlyphService
 		
 		if (KlyphFlags.IS_AMAZON_VERSION)
 		{
-			Log.d("KlyphService", "stopPushNotificationsService: stopping ADM");
-			KlyphADM.unregister(KlyphApplication.getInstance());
+			try {
+				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphADM");
+				Method method = clazz.getMethod("unregister", Context.class);
+				Log.d("KlyphService", "stopPushNotificationsService: stopping ADM");
+				method.invoke(null,KlyphApplication.getInstance());
+			} catch (Exception e) {
+				Log.e("KlyphService", "stopPushNotificationsService: failed to stop ADM", e);
+			}
 		}
 		else
 		{
-			Log.d("KlyphService", "stopPushNotificationsService: stopping GCM");
-			KlyphGCM.unregister(KlyphApplication.getInstance());
+			try {
+				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphGCM");
+				Method method = clazz.getMethod("unregister", Context.class);
+				Log.d("KlyphService", "stopPushNotificationsService: stopping GCM");
+				method.invoke(null,KlyphApplication.getInstance());
+			} catch (Exception e) {
+				Log.e("KlyphService", "stopPushNotificationsService: failed to stop GCM", e);
+			}
 		}
 		
 	}

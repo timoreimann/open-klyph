@@ -1,5 +1,6 @@
 package com.abewy.android.apps.klyph;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +8,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import com.abewy.android.apps.klyph.core.KlyphFlags;
 import com.abewy.android.apps.klyph.R;
-import com.amazon.device.messaging.ADM;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
@@ -306,15 +307,17 @@ public class KlyphPreferences
 		{
 			try
 			{
-				Class.forName("com.amazon.device.messaging.ADM");
+				Class clazz = Class.forName("com.amazon.device.messaging.ADM");
+				Object instance = clazz.getConstructor(Context.class).newInstance(KlyphApplication.getInstance());
+				Method isSupported = clazz.getMethod("isSupported");
+				return ((Boolean)isSupported.invoke(instance)).booleanValue();
 			}
-			catch (ClassNotFoundException e)
+			catch (Exception e)
 			{
-				return false;
+				// failure
 			}
 
-			final ADM adm = new ADM(KlyphApplication.getInstance());
-			return adm.isSupported();
+			return false;
 		}
 
 		return true;

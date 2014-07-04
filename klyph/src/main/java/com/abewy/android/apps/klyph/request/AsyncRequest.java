@@ -1,6 +1,8 @@
 package com.abewy.android.apps.klyph.request;
 
 import android.os.Bundle;
+
+import com.abewy.android.apps.klyph.CrashReporter;
 import com.abewy.android.apps.klyph.core.request.BaseAsyncRequest;
 import com.abewy.android.apps.klyph.core.request.RequestError;
 import com.abewy.android.apps.klyph.core.request.RequestQuery;
@@ -82,7 +84,6 @@ import com.abewy.android.apps.klyph.facebook.request.UserTimelineFeedRequest;
 import com.abewy.android.apps.klyph.facebook.request.UserTimelineNewestRequest;
 import com.abewy.android.apps.klyph.facebook.request.UserTimelineRequest;
 import com.abewy.android.apps.klyph.facebook.request.VideoRequest;
-import com.crashlytics.android.Crashlytics;
 
 public class AsyncRequest extends BaseAsyncRequest
 {
@@ -189,7 +190,7 @@ public class AsyncRequest extends BaseAsyncRequest
 		// Crashlytics report on request error
 		if (getQuery() == Query.NEWSFEED || getQuery() == Query.NEWSFEED_NEWEST)
 		{
-			Crashlytics.setString("Query " + getQuery(), error.getMessage());
+			CrashReporter.setString("Query " + getQuery(), error.getMessage());
 
 			try
 			{
@@ -198,7 +199,7 @@ public class AsyncRequest extends BaseAsyncRequest
 			}
 			catch (Exception e)
 			{
-				Crashlytics.logException(e);
+                CrashReporter.logException(e);
 			}
 		}
 

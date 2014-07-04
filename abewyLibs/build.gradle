@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 8
@@ -14,9 +14,23 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+	debug {
+	    runProguard false
+	}
     }
+
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
+    }
+
+    publishNonDefault true
 }
 
 dependencies {
-    compile project(':viewPagerIndicator')
+    opensourceCompile project(path: ':viewPagerIndicator', configuration: 'opensourceDebug')
+    fullCompile project(path: ':viewPagerIndicator', configuration: 'fullDebug')
 }
+

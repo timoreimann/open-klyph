@@ -3,7 +3,7 @@ package com.abewy.android.apps.klyph.core;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.util.Log;
-import com.crashlytics.android.Crashlytics;
+import java.lang.reflect.Method;
 
 public abstract class BaseApplication extends Application
 {
@@ -32,7 +32,13 @@ public abstract class BaseApplication extends Application
 	{
 		if (KlyphFlags.ENABLE_BUG_REPORT)
 		{
-			Crashlytics.start(this);
+			try {
+				Class clazz = Class.forName("com.crashlytics.android.Crashlytics");
+				Method method = clazz.getMethod("start", android.content.Context.class);
+				method.invoke(null, this);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

@@ -16,6 +16,8 @@ import android.os.Message;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import com.abewy.android.apps.klyph.CrashReporter;
 import com.abewy.android.apps.klyph.KlyphBundleExtras;
 import com.abewy.android.apps.klyph.KlyphNotification;
 import com.abewy.android.apps.klyph.KlyphPreferences;
@@ -28,7 +30,6 @@ import com.abewy.android.apps.klyph.core.imageloader.SimpleFakeImageLoaderListen
 import com.abewy.android.apps.klyph.core.request.Response;
 import com.abewy.android.apps.klyph.request.AsyncRequest;
 import com.abewy.android.apps.klyph.request.AsyncRequest.Query;
-import com.crashlytics.android.Crashlytics;
 import com.facebook.Session;
 import com.squareup.picasso.Picasso.LoadedFrom;
 
@@ -199,10 +200,10 @@ public class NotificationService extends Service
 					// Trying to discover unreferenced types
 					if (!types.contains(objectType))
 					{
-						Crashlytics.setString("Notification_type ", objectType);
-						Crashlytics.setString("Object_name ", n.getObject_name());
-						Crashlytics.setString("Notification_text ", n.getTitle_text());
-						Crashlytics.setString("Notification_url ", n.getHref());
+						CrashReporter.setString("Notification_type ", objectType);
+                        CrashReporter.setString("Object_name ", n.getObject_name());
+                        CrashReporter.setString("Notification_text ", n.getTitle_text());
+                        CrashReporter.setString("Notification_url ", n.getHref());
 
 						try
 						{
@@ -210,7 +211,7 @@ public class NotificationService extends Service
 						}
 						catch (Exception e)
 						{
-							Crashlytics.logException(e);
+                            CrashReporter.logException(e);
 						}
 					}
 

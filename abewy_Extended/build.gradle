@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 11
@@ -15,8 +15,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
+    }
+    publishNonDefault true
 }
 
 dependencies {
-    compile files('libs/android-support-v13.jar')
+    compile 'com.android.support:support-v13:18.0.+'
 }

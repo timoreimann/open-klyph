@@ -20,6 +20,8 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
+
+import com.abewy.android.apps.klyph.CrashReporter;
 import com.abewy.android.apps.klyph.KlyphBundleExtras;
 import com.abewy.android.apps.klyph.R;
 import com.abewy.android.apps.klyph.adapter.MultiObjectAdapter;
@@ -35,7 +37,6 @@ import com.abewy.app.BaseFragment;
 import com.abewy.klyph.items.Progress;
 import com.abewy.klyph.items.TextButtonItem;
 import com.abewy.net.ConnectionState;
-import com.crashlytics.android.Crashlytics;
 import com.haarman.listviewanimations.BaseAdapterDecorator;
 
 public class KlyphFragment2 extends BaseFragment implements IKlyphFragment, OnScrollListener, OnRefreshListener
@@ -609,7 +610,7 @@ public class KlyphFragment2 extends BaseFragment implements IKlyphFragment, OnSc
 		}
 		catch (Exception e)
 		{
-			Crashlytics.logException(e);
+			CrashReporter.logException(e);
 		}
 
 		if (getView() == null || getGridView() == null)

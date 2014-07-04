@@ -9,9 +9,9 @@ import java.util.List;
 import android.widget.AbsListView;
 import com.abewy.android.adapter.MultiTypeAdapter;
 import com.abewy.android.adapter.TypeAdapter;
+import com.abewy.android.apps.klyph.CrashReporter;
 import com.abewy.android.apps.klyph.adapter.animation.DeleteAdapter;
 import com.abewy.android.apps.klyph.core.graph.GraphObject;
-import com.crashlytics.android.Crashlytics;
 import com.haarman.listviewanimations.itemmanipulation.OnDismissCallback;
 
 public class MultiObjectAdapter extends MultiTypeAdapter<GraphObject>
@@ -136,8 +136,8 @@ public class MultiObjectAdapter extends MultiTypeAdapter<GraphObject>
 
 		if (adapter == null)
 		{
-			Crashlytics.setString("MultiObjectAdapter_object", object != null ? object.toString() : "object is null");
-			Crashlytics.setString("MultiObjectAdapter_layout", String.valueOf(layoutType));
+            CrashReporter.setString("MultiObjectAdapter_object", object != null ? object.toString() : "object is null");
+            CrashReporter.setString("MultiObjectAdapter_layout", String.valueOf(layoutType));
 		}
 
 		return adapter;

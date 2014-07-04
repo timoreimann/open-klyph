@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 7
@@ -14,18 +14,27 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+	debug {
+	    runProguard false
+	}
     }
 
     lintOptions {
         abortOnError false
     }
-}
 
-def deps = [
-        'com.github.castorflex.smoothprogressbar:library:0.5.1',
-        'com.android.support:support-v4:+'
-]
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
+    }
+
+    publishNonDefault true
+}
 
 dependencies {
-    compile deps
+    compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
+    compile 'com.android.support:support-v4:+'
 }
+
