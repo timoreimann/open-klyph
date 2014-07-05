@@ -1,0 +1,60 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+	debug {
+	    runProguard false
+	}
+    }
+
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
+    }
+
+    lintOptions {
+        disable 'ExtraTranslation'
+    }
+
+    publishNonDefault true
+}
+
+dependencies {
+    fullCompile project(path: ':androidDonationsLib', configuration: 'fullDebug')
+    fullCompile project(path: ':imageViewTouch', configuration: 'fullDebug')
+    fullCompile project(path: ':abewyLibs', configuration: 'fullDebug')
+    fullCompile project(path: ':abewyExtended', configuration: 'fullDebug')
+    fullCompile project(path: ':horizontalListView', configuration: 'fullDebug')
+    fullCompile project(path: ':openKlyphCore', configuration: 'fullDebug')
+    fullCompile 'com.google.android.gms:play-services:+'
+    fullCompile files('libs/amazon-device-messaging-1.0.1.jar')
+    fullCompile files('libs/gcm.jar')
+
+    opensourceCompile project(path: ':androidDonationsLib', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':imageViewTouch', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':abewyLibs', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':abewyExtended', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':horizontalListView', configuration: 'opensourceDebug')
+    opensourceCompile project(path: ':openKlyphCore', configuration: 'opensourceDebug')
+
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.9'
+    compile 'com.android.support:support-v4:+'
+    compile files('libs/commons-lang3-3.1.jar')
+    compile files('libs/dragsortlistview.jar')
+    compile files('libs/listviewanimations.jar')
+}
+
