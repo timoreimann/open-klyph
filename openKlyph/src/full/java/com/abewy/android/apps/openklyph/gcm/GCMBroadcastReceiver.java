@@ -12,7 +12,7 @@ public class GCMBroadcastReceiver extends com.google.android.gcm.GCMBroadcastRec
 	@Override
 	protected String getGCMIntentServiceClassName(Context context)
 	{
-		return "com.abewy.android.apps.klyph.gcm.GCMIntentService";
+		return "com.abewy.android.apps.openklyph.gcm.GCMIntentService";
 	}
 
 }

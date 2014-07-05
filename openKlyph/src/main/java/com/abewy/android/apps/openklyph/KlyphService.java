@@ -76,7 +76,7 @@ public class KlyphService
 		if (KlyphFlags.IS_AMAZON_VERSION)
 		{
 			try {
-				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphADM");
+				Class clazz = Class.forName("com.abewy.android.apps.openklyph.KlyphADM");
 				Method method = clazz.getMethod("registerIfNecessary");
 				Log.d("KlyphService", "startPushNotificationsService: starting ADM");
 				method.invoke(null);
@@ -87,7 +87,7 @@ public class KlyphService
 		else
 		{
 			try {
-				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphGCM");
+				Class clazz = Class.forName("com.abewy.android.apps.openklyph.KlyphGCM");
 				Method method = clazz.getMethod("registerIfNecessary");
 				Log.d("KlyphService", "startPushNotificationsService: starting GCM");
 				method.invoke(null);
@@ -104,7 +104,7 @@ public class KlyphService
 		if (KlyphFlags.IS_AMAZON_VERSION)
 		{
 			try {
-				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphADM");
+				Class clazz = Class.forName("com.abewy.android.apps.openklyph.KlyphADM");
 				Method method = clazz.getMethod("unregister", Context.class);
 				Log.d("KlyphService", "stopPushNotificationsService: stopping ADM");
 				method.invoke(null,KlyphApplication.getInstance());
@@ -115,7 +115,7 @@ public class KlyphService
 		else
 		{
 			try {
-				Class clazz = Class.forName("com.abewy.android.apps.klyph.KlyphGCM");
+				Class clazz = Class.forName("com.abewy.android.apps.openklyph.KlyphGCM");
 				Method method = clazz.getMethod("unregister", Context.class);
 				Log.d("KlyphService", "stopPushNotificationsService: stopping GCM");
 				method.invoke(null,KlyphApplication.getInstance());

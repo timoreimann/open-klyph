@@ -64,7 +64,7 @@
             android:parentActivityName="com.abewy.android.apps.openklyph.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.AlbumPhotosActivity"
@@ -78,7 +78,7 @@
             android:parentActivityName="com.abewy.android.apps.openklyph.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.MessageActivity"
@@ -86,21 +86,21 @@
             android:parentActivityName="com.abewy.android.apps.openklyph.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.PageActivity"
             android:parentActivityName="com.abewy.android.apps.openklyph.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.GroupActivity"
             android:parentActivityName="com.abewy.android.apps.openklyph.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.StreamActivity"
@@ -109,7 +109,7 @@
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.abewy.android.apps.klyph.app.MainActivity" />
+                android:value="com.abewy.android.apps.openklyph.app.MainActivity" />
         </activity>
         <activity
             android:name="com.abewy.android.apps.openklyph.app.ImageActivity"

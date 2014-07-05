@@ -100,7 +100,7 @@ public class SetNotificationReadService extends Service
 					if (service.get() != null)
 					{
 						Intent intent = new Intent();
-						intent.setAction("com.abewy.android.apps.klyph.action.NOTIFICATION_STATUS_CHANGE");
+						intent.setAction("com.abewy.android.apps.openklyph.action.NOTIFICATION_STATUS_CHANGE");
 						service.get().sendBroadcast(intent);
 					}
 					

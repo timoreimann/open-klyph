@@ -19,7 +19,7 @@ public class KlyphApplication extends com.abewy.android.apps.openklyph.KlyphAppl
 		//bannerAds.add(new AmazonBanner());
 
 		try {
-			Class clazz = Class.forName("com.abewy.android.apps.klyph.ads.AdmobBanner");
+			Class clazz = Class.forName("com.abewy.android.apps.openklyph.ads.AdmobBanner");
 			bannerAds.add(
 				(IBannerAd)
 					clazz.getConstructor(String.class)

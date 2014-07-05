@@ -92,9 +92,9 @@ public class MainActivity extends TitledFragmentActivity implements LoginFragmen
 					32,
 					-105										};
 
-	private static final String		KLYPH_PRO_PLAY_STORE_URI	= "https://play.google.com/store/apps/details?id=com.abewy.klyph.pro";
-	private static final String		MESSENGER_PLAY_STORE_URI	= "https://play.google.com/store/apps/details?id=com.abewy.android.apps.klyph.messenger";
-	private static final String		MESSENGER_PACKAGE_NAME		= "com.abewy.android.apps.klyph.messenger";
+	private static final String		KLYPH_PRO_PLAY_STORE_URI	= "https://play.google.com/store/apps/details?id=com.abewy.openklyph.pro";
+	private static final String		MESSENGER_PLAY_STORE_URI	= "https://play.google.com/store/apps/details?id=com.abewy.android.apps.openklyph.messenger";
+	private static final String		MESSENGER_PACKAGE_NAME		= "com.abewy.android.apps.openklyph.messenger";
 
 	private LicenseChecker			mChecker;
 	private LicenseCheckerCallback	mLicenseCheckerCallback;
@@ -253,7 +253,7 @@ public class MainActivity extends TitledFragmentActivity implements LoginFragmen
 
 		final List<String> labels = KlyphPreferences.getLeftDrawerMenuLabels();
 		classes = new ArrayList<String>(KlyphPreferences.getLeftDrawerMenuClasses());
-		classes.add("com.abewy.android.apps.klyph.fragment.UserTimeline");
+		classes.add("com.abewy.android.apps.openklyph.fragment.UserTimeline");
 		navAdapter = new DrawerLayoutAdapter(getActionBar().getThemedContext(), R.layout.item_drawer_layout, labels);
 
 		final ListView navList = (ListView) findViewById(R.id.drawer);
@@ -610,7 +610,7 @@ public class MainActivity extends TitledFragmentActivity implements LoginFragmen
 
 			String className = classes.get(selection);
 
-			if (className.equals("com.abewy.android.apps.klyph.fragment.Chat"))
+			if (className.equals("com.abewy.android.apps.openklyph.fragment.Chat"))
 			{
 				PackageManager pm = getPackageManager();
 

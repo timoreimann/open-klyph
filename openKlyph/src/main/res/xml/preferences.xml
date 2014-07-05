@@ -590,7 +590,7 @@
             android:title="@string/preference_buy_pro_version_title" >
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://play.google.com/store/apps/details?id=com.abewy.klyph.pro" />
+                android:data="https://play.google.com/store/apps/details?id=com.abewy.openklyph.pro" />
         </PreferenceScreen>
         <PreferenceScreen
             android:key="preference_changelog"

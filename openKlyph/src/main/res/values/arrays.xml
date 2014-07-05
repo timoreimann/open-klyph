@@ -380,17 +380,17 @@
     </string-array>
     
     <string-array name="nav_classes">
-        <item>com.abewy.android.apps.klyph.fragment.StreamListFragment</item>
-        <item>com.abewy.android.apps.klyph.fragment.ElementAlbums</item>
-        <item>com.abewy.android.apps.klyph.fragment.Friends</item>
-        <item>com.abewy.android.apps.klyph.fragment.Threads</item>
-        <item>com.abewy.android.apps.klyph.fragment.Chat</item>
-        <item>com.abewy.android.apps.klyph.fragment.Pages</item>
-        <item>com.abewy.android.apps.klyph.fragment.Groups</item>
-        <item>com.abewy.android.apps.klyph.fragment.ElementEvents</item>
-        <item>com.abewy.android.apps.klyph.fragment.FollowedPeople</item>
-        <item>com.abewy.android.apps.klyph.fragment.Birthdays</item>
-        <item>com.abewy.android.apps.klyph.fragment.Search</item>
+        <item>com.abewy.android.apps.openklyph.fragment.StreamListFragment</item>
+        <item>com.abewy.android.apps.openklyph.fragment.ElementAlbums</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Friends</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Threads</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Chat</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Pages</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Groups</item>
+        <item>com.abewy.android.apps.openklyph.fragment.ElementEvents</item>
+        <item>com.abewy.android.apps.openklyph.fragment.FollowedPeople</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Birthdays</item>
+        <item>com.abewy.android.apps.openklyph.fragment.Search</item>
     </string-array>
     
     <string-array name="user_feed_list">

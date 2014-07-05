@@ -599,7 +599,7 @@ public class Notifications extends KlyphFragment implements IFbPermissionCallbac
 	{
 		super.onResume();
 		getActivity().registerReceiver(mMessageReceiver, new IntentFilter(KlyphBundleExtras.NOTIFICATION_EVENT));
-		getActivity().registerReceiver(mMessageReceiver, new IntentFilter("com.abewy.android.apps.klyph.action.NOTIFICATION_STATUS_CHANGE"));
+		getActivity().registerReceiver(mMessageReceiver, new IntentFilter("com.abewy.android.apps.openklyph.action.NOTIFICATION_STATUS_CHANGE"));
 
 		// Update list in case some items have been read
 		if (getAdapter() != null)

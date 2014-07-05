@@ -16,7 +16,7 @@ public final class CommonUtilities
 	 */
 	static final String			TAG						= "Klyph GCM";
 
-	static final String			DISPLAY_MESSAGE_ACTION	= "com.abewy.android.apps.klyph.gcm.DISPLAY_MESSAGE";
+	static final String			DISPLAY_MESSAGE_ACTION	= "com.abewy.android.apps.openklyph.gcm.DISPLAY_MESSAGE";
 
 	static final String			EXTRA_MESSAGE			= "message";
 }
