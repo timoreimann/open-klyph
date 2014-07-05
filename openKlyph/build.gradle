@@ -40,7 +40,7 @@ dependencies {
     fullCompile project(path: ':abewyExtended', configuration: 'fullDebug')
     fullCompile project(path: ':horizontalListView', configuration: 'fullDebug')
     fullCompile project(path: ':openKlyphCore', configuration: 'fullDebug')
-    fullCompile 'com.google.android.gms:play-services:+'
+    fullCompile 'com.google.android.gms:play-services:3.2.+'
     fullCompile files('libs/amazon-device-messaging-1.0.1.jar')
     fullCompile files('libs/gcm.jar')
 
