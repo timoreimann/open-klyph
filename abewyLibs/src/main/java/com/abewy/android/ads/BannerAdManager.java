@@ -106,6 +106,12 @@ public class BannerAdManager
 
 			setNextBannerAdAsCurrent();
 
+            if (index >= bannerAds.size()) {
+                if (bannerAds.size() == 0) {
+                    return;
+                }
+                index %= bannerAds.size();
+            }
 			IBannerAd bannerAd = bannerAds.get(index);
 
 			adView = bannerAd.createAdView(activity, adContainer, callback);

@@ -3,6 +3,8 @@ package com.abewy.android.apps.klyph;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -530,9 +532,11 @@ public class KlyphPreferences
 
 	public static List<String> getLeftDrawerMenuClasses()
 	{
-		String defaultSet = StringUtils.join(KlyphApplication.getInstance().getResources().getStringArray(R.array.nav_classes), ",");
+		String defaultClasses[] = KlyphApplication.getInstance().getResources().getStringArray(R.array.nav_classes);
+        HashSet<String> defaultSet = new HashSet<String>(defaultClasses.length * 2);
+        defaultSet.addAll(Arrays.asList(defaultClasses));
 
-		return Arrays.asList(getPreferences().getString(PREFERENCE_LEFT_DRAWER_MENU_CLASSES, defaultSet).split(","));
+        return Collections.list(Collections.enumeration(getPreferences().getStringSet(PREFERENCE_LEFT_DRAWER_MENU_CLASSES, defaultSet)));
 	}
 
 	public static List<String> getLeftDrawerMenuLabels()

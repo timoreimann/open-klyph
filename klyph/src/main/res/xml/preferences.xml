@@ -36,7 +36,7 @@
             android:key="preference_view_pager_indicator_style"
             android:title="@string/preferences_view_pager_indicator_style_title" />
         
-        <android.preference.MultiSelectDragListPreference
+        <android.preference.MultiSelectListPreference
             android:defaultValue="@array/nav_classes"
             android:dialogTitle="@string/preference_left_drawer_items_title"
             android:key="preference_left_drawer_items"
@@ -45,7 +45,7 @@
             klyph:entryValues="@array/nav_classes" />
 
         <!--
-            <android.preference.MultiSelectDragListPreference
+            <android.preference.MultiSelectListPreference
             android:defaultValue="@array/preferences_main_activity_entries"
             android:dialogTitle="@string/preferences_main_activity_tabs_title"
             android:key="preference_main_activity_tabs"
@@ -53,21 +53,21 @@
             klyph:entries="@array/preferences_main_activity_entries"
             klyph:entryValues="@array/preferences_main_activity_values" />
         -->
-        <android.preference.MultiSelectDragListPreference
+        <android.preference.MultiSelectListPreference
             android:defaultValue="@array/preferences_user_activity_values"
             android:dialogTitle="@string/preferences_user_activity_tabs_title"
             android:key="preference_user_activity_tabs"
             android:title="@string/preferences_user_activity_tabs_title"
             klyph:entries="@array/preferences_user_activity_entries"
             klyph:entryValues="@array/preferences_user_activity_values" />
-        <android.preference.MultiSelectDragListPreference
+        <android.preference.MultiSelectListPreference
             android:defaultValue="@array/preferences_page_activity_values"
             android:dialogTitle="@string/preferences_page_activity_tabs_title"
             android:key="preference_page_activity_tabs"
             android:title="@string/preferences_page_activity_tabs_title"
             klyph:entries="@array/preferences_page_activity_entries"
             klyph:entryValues="@array/preferences_page_activity_values" />
-        <android.preference.MultiSelectDragListPreference
+        <android.preference.MultiSelectListPreference
             android:defaultValue="@array/preferences_group_activity_values"
             android:dialogTitle="@string/preferences_group_activity_tabs_title"
             android:key="preference_group_activity_tabs"

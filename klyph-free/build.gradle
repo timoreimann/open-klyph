@@ -1,0 +1,63 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+	debug {
+	    runProguard false
+	}
+    }
+
+    productFlavors {
+        opensource {
+        }
+        full {
+        }
+    }
+
+    lintOptions {
+        disable 'ExtraTranslation'
+    }
+}
+
+dependencies {
+    fullCompile project(path: ':klyph', configuration: 'fullDebug')
+    fullCompile files('libs/GoogleAdMobAdsSdk-6.4.1.jar')
+    fullCompile files('libs/amazon-ads-5.1.40.jar')
+
+    opensourceCompile project(path: ':klyph', configuration: 'opensourceDebug')
+
+    compile 'com.android.support:support-v4:+'
+}
+
+android.applicationVariants.all{ variant ->
+    variant.mergeResources.doLast{
+        println('Replacing resources if gradle.properties specifies them')
+        if (fb_app_id != null) {
+            println('Substitude fb_app_id')
+            File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+            String content = valuesFile.getText('UTF-8')
+            content = content.replaceAll(/FB_APP_ID/, fb_app_id)
+            valuesFile.write(content, 'UTF-8')
+        }
+        if (fb_app_secret != null) {
+            println('Substitude fb_app_secret')
+            File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+            String content = valuesFile.getText('UTF-8')
+            content = content.replaceAll(/FB_APP_SECRET/, fb_app_secret)
+            valuesFile.write(content, 'UTF-8')
+        }
+    }
+}
+
