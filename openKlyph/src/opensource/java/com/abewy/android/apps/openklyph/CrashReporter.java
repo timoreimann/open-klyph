@@ -32,4 +32,8 @@ public class CrashReporter {
         }
         Log.e(TAG, sb.toString(), exception);
     }
+
+    public static void log(int prio, String tag, String msg) {
+        Log.println(prio, tag, msg);
+    }
 }
