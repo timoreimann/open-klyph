@@ -3,13 +3,13 @@
 	
     <!-- To not translate -->
     
-    <string name="app_name">Klyph Messenger</string>
-    <string name="app_pro_name">Klyph Messenger Pro</string>
-    <string name="app_pro_large_name">Klyph Messenger Pro for Facebook</string>
-    <string name="app_large_name">Klyph Messenger for Facebook (Beta)</string>
+    <string name="app_name">OpenKlyph Messenger</string>
+    <string name="app_pro_name">OpenKlyph Messenger Pro</string>
+    <string name="app_pro_large_name">OpenKlyph Messenger Pro for Facebook</string>
+    <string name="app_large_name">OpenKlyph Messenger for Facebook (Beta)</string>
     
-    <string name="company_url">http://www.abewy.com</string>
-    <string name="google_plus_community_url">https://plus.google.com/communities/108701133516085969362</string>
+    <string name="company_url">http://</string>
+    <string name="google_plus_community_url">http://</string>
     
     <!-- Admob -->
 	<string name="admob_id">[ADMOB_ID]</string>
