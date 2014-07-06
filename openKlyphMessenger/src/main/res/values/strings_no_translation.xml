@@ -15,8 +15,8 @@
 	<string name="admob_id">[ADMOB_ID]</string>
 	
 	<!-- Facebook -->
-	<string name="app_id">[FB_APP_ID]</string>
-    <string name="fb_app_secret">[FB_APP_SECRET]</string>
+	<string name="app_id">FB_APP_ID</string>
+    <string name="fb_app_secret">FB_APP_SECRET</string>
     
 	<!-- Themes -->
     <string name="theme_light_blue">lightBlue</string>
