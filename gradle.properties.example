@@ -1,0 +1,3 @@
+# WARNING: changing those settings requires a full rebuild (clean + assemble)
+fb_app_id=FB_APP_ID
+fb_app_secret=FB_APP_SECRET
